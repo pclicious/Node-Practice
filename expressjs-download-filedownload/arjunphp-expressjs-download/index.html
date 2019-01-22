@@ -1,0 +1,24 @@
+<html>
+<body>
+<h1>Welcome..</h1>
+<p>Hello Pooja.</p>
+ <form name="myform" id="myform" onsubmit="submitme()" enctype="multipart/form-data" method = "GET">
+ <input type="file" name="filename" id="filename"><br>
+ <input type="submit">
+ </form>
+ 
+ <script>
+	function submitme(){
+	myfile = document.getElementById('filename').files.item(0).name
+	var myString = "http://localhost:8000/download/"+myfile
+	<!-- alert(document.getElementById('filename').files.item(0).name) -->
+	<!-- alert(document.getElementById('filename').files.item(0).size) -->
+	<!-- alert(document.getElementById('filename').files.item(0).type) -->
+	var mySplitResult = myString.split("?");
+	alert(mySplitResult[0]);
+	document.getElementById('myform').action = mySplitResult[0]
+	}
+	
+ </script>
+</body>
+</html>
